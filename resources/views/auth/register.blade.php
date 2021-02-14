@@ -38,7 +38,23 @@
                                 @enderror
                             </div>
                         </div>
+                        {{-- date of birth block --}}
 
+                        <div class="form-group row">
+                            <label for="birth_date" class="col-md-4 col-form-label text-md-right">{{ __('Birth-date') }}</label>
+
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" id="datepicker" @error('birth_date') is-invalid @enderror" name="birth_date" value="{{ old('birth_date') }}" required autocomplete="birth_date">
+
+                                @error('birth_date')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        {{-- password block --}}
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
@@ -63,11 +79,20 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary btn-block ">
                                     {{ __('Register') }}
                                 </button>
                             </div>
                         </div>
+                        <div class="form-group row ">
+                            <div class="col-md-6 offset-md-4 "> 
+                                <a class="btn btn-link pr-3 font-weight-bold" href="{{ route('login') }}">
+                                    {{ __('Already registered? Try to login!') }}
+                                </a>
+                            </div>
+                        </div> 
+
+
                     </form>
                 </div>
             </div>
